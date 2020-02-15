@@ -10,7 +10,7 @@ function reverse(str) {
     // using native array methods
     let reversed = [...str].reverse().join('')
 
-    // using a loop
+    // using a loop to iterate using string attributes
     let old = []
     for (let i = str.length; i >= 0; i--) {
         old.push(str[i])
