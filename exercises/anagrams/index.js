@@ -8,27 +8,17 @@
 //   anagrams('RAIL! SAFETY!', 'fairy tales') --> True
 //   anagrams('Hi there', 'Bye there') --> False
 
-
-  // realized I didn't need to make an object at all and could just use strings and arrays! TAKE TWO:
-  function anagrams(stringA, stringB) {
+// Wait, it could be EVEN SIMPLER! TAKE THREE:
+function anagrams(stringA, stringB) {
     // clean the strings of any punctuation, make them lowercase, then sort and join the array into a string
     const cleanStringA = stringA.toLowerCase().match(/\w/gi).sort().join()
     const cleanStringB = stringB.toLowerCase().match(/\w/gi).sort().join()
 
-    // default state is true because one false letter means they aren't anagrams, while one true letter doesn't necessarily mean they ARE anagrams. We're checking for false letters to see if we should flip the boolean to false.
-    let isAnagram = true
-    if (cleanStringA.length !== cleanStringB.length) {
-        // if the cleaned strings are different lengths, they're not anagrams, no further checking needed
-        isAnagram = false
-      } else {
-          // since we sorted the string and we know the strings are the same length, we can check for equality character by character. if any don't match, it's not an anagram
-        for (let i = 0; i < cleanStringA.length; i++) {
-            if (cleanStringA[i] !== cleanStringB[i])
-            isAnagram = false
-          }
-      }
-    return isAnagram
+    // D'OH! I can just use strict equality since I've already sanitized my data and turned it into a string.
+    
+    return cleanStringA === cleanStringB
   }
+  
 
 module.exports = anagrams;
 
@@ -72,6 +62,30 @@ module.exports = anagrams;
 //             anagram = false
 //           }
 //         })
+//       }
+//     return isAnagram
+//   }
+
+
+
+
+// realized I didn't need to make an object at all and could just use strings and arrays! TAKE TWO:
+// function anagrams(stringA, stringB) {
+//     // clean the strings of any punctuation, make them lowercase, then sort and join the array into a string
+//     const cleanStringA = stringA.toLowerCase().match(/\w/gi).sort().join()
+//     const cleanStringB = stringB.toLowerCase().match(/\w/gi).sort().join()
+
+//     // default state is true because one false letter means they aren't anagrams, while one true letter doesn't necessarily mean they ARE anagrams. We're checking for false letters to see if we should flip the boolean to false.
+//     let isAnagram = true
+//     if (cleanStringA.length !== cleanStringB.length) {
+//         // if the cleaned strings are different lengths, they're not anagrams, no further checking needed
+//         isAnagram = false
+//       } else {
+//           // since we sorted the string and we know the strings are the same length, we can check for equality character by character. if any don't match, it's not an anagram
+//         for (let i = 0; i < cleanStringA.length; i++) {
+//             if (cleanStringA[i] !== cleanStringB[i])
+//             isAnagram = false
+//           }
 //       }
 //     return isAnagram
 //   }
