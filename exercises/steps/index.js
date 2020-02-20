@@ -17,6 +17,13 @@
 //       '### '
 //       '####'
 
-function steps(n) {}
+// WOOHOO, SECOND TRY! Three cheers for string interpolation, no cheers for Array(n).
+function steps(n) {
+    for (let i = 1; i <= n; i++) {
+      let hashtags = i;
+      let spaces = n - i;
+      console.log(`${''.padStart(hashtags, "#")}${''.padStart(spaces, ' ')}`)
+      }
+    }
 
 module.exports = steps;
